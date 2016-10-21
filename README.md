@@ -1,4 +1,4 @@
-# Project Title
+# Gulp FM Icon Converter
 
 This tool is used to help convert svg icons into filemaker compatable svg icons. It various things such as fm_fill and a grey fill to enable use in filemaker.
 
