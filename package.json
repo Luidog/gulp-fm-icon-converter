@@ -1,0 +1,25 @@
+{
+  "name": "gulp-fm-icon-converter",
+  "version": "1.0.0",
+  "description": "A gulpfile to automatically add the fm_fill class to an icon",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "SVG",
+    "Filemaker",
+    "node",
+    "gulp"
+  ],
+  "repository" : { 
+    "type" : "git",
+     "url" : "https://github.com/Luidog/gulp-fm-icon-converter.git"
+  },
+  "author": "Lui de la Parra",
+  "license" : "SEE LICENSE IN LICENSE.md",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-cheerio": "^0.6.2"
+  }
+}
