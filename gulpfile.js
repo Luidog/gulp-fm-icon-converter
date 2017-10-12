@@ -1,35 +1,36 @@
 'use strict'
 
-const gulp = require('gulp'),
-	  cheerio = require('gulp-cheerio'),
-	  settings = require('./configuration/settings'),
-	  shapeTypes = settings.shapeTypes;
+const gulp = require('gulp')
+const cheerio = require('gulp-cheerio')
+const { folders, files, shapeTypes } = require('./configuration/settings')
 
-function fixElement(icon) {
-	for (var i = shapeTypes.length - 1; i >= 0; i--) {
-		var shape = shapeTypes[i];
-		var element = icon(shape);
-		
-		element.attribs = {};
-    	element.addClass('fm_fill').attr('fill','#ccc');
-	}
+/**
+ * fixElement removes any element attributes of a shape then adds the fm_fill class
+ * and sets the fill attribute to Filemaker's grey color.
+ * @param  {html} icon The icon to modify
+ */
+const fixElement = (icon) => {
+  for (let shape of shapeTypes) {
+    let element = icon(shape)
+    element.attribs = {}
+    element.addClass('fm_fill').attr('fill', '#ccc')
+  }
 }
 
-gulp.task('add-fm-class', function(){
-	console.log(settings.standardIconsFolder + '/*.svg');
-	return gulp
-			.src(settings.standardIconsFolder + '/*.svg')
-			.pipe(cheerio({
-				run: function (icon){
-					 	fixElement(icon);
-				}
-			}))
-			.pipe(gulp.dest(settings.fmIconsFolder + "/"));
-});
-
-gulp.task('watch', function(){
-	console.log("watching " + settings.standardIconsFolder + " for Icons." );
-	gulp.watch(settings.standardIconsFolder + '/*.svg', ['add-fm-class']);	
+gulp.task('add-fm-class', () => {
+  console.log('icons converted - 🍺')
+  gulp.src(folders.source)
+    .pipe(cheerio({
+      run: (icon) => {
+        fixElement(icon)
+      }
+    }))
+    .pipe(gulp.dest(folders.destination))
 })
 
-gulp.task('default', ['add-fm-class', 'watch']);
+gulp.task('watch', () => {
+  console.log(`👀   watching ./${folders.source} for icons. 👀`)
+  return gulp.watch(files, ['add-fm-class'])
+})
+
+gulp.task('default', ['add-fm-class', 'watch'])
