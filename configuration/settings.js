@@ -27,7 +27,7 @@ module.exports.folders = {
  * @type {Array}
  */
 
-module.exports.shapeTypes = [
+module.exports.shapes = [
   'path',
   'rect',
   'ellipse',

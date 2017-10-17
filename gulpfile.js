@@ -2,7 +2,7 @@
 
 const gulp = require('gulp')
 const cheerio = require('gulp-cheerio')
-const { folders, files, shapeTypes } = require('./configuration/settings')
+const { folders, files, shapes } = require('./configuration/settings')
 
 /**
  * fixElement removes any element attributes of a shape then adds the fm_fill class
@@ -10,7 +10,7 @@ const { folders, files, shapeTypes } = require('./configuration/settings')
  * @param  {html} icon The icon to modify
  */
 const fixElement = (icon) => {
-  for (let shape of shapeTypes) {
+  for (let shape of shapes) {
     let element = icon(shape)
     element.attribs = {}
     element.addClass('fm_fill').attr('fill', '#ccc')
