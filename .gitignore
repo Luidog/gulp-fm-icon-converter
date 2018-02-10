@@ -1,5 +1,9 @@
+
+# Node.js Modules
 /node_modules
 
+# Stores
 .DS_Store
-.png
-.svg
+
+# All SVGs
+*.svg
