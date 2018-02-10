@@ -4,6 +4,7 @@
   "description": "A gulpfile to automatically add the fm_fill class to an icon",
   "main": "gulpfile.js",
   "scripts": {
+    "start": "gulp",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -12,14 +13,19 @@
     "node",
     "gulp"
   ],
-  "repository" : { 
-    "type" : "git",
-     "url" : "https://github.com/Luidog/gulp-fm-icon-converter.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Luidog/gulp-fm-icon-converter.git"
   },
   "author": "Lui de la Parra",
-  "license" : "SEE LICENSE IN LICENSE.md",
+  "license": "SEE LICENSE IN LICENSE.md",
   "dependencies": {
     "gulp": "^3.9.1",
     "gulp-cheerio": "^0.6.2"
+  },
+    "devDependencies": {
+    "eslint": "^4.10.0",
+    "eslint-config-google": "^0.9.1",
+    "prettier": "^1.7.4"
   }
 }

@@ -1,0 +1,10 @@
+{
+  "plugins": ["prettier"],
+  "extends": ["google","eslint:recommended"],
+  "rules": {
+  	"prettier/prettier": "warn",
+  },
+  "env": {
+    "node": true
+  }
+}
