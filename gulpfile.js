@@ -7,11 +7,12 @@ const { folders, files, shapes, unusedAttributes } = require('./configuration');
 /**
  * fixElement removes any element attributes of a shape then adds the fm_fill class
  * and sets the fill attribute to Filemaker's grey color.
- * @param  {html} icon The icon to modify
+ * @param  {$} $ The cheerio selector used to traverse our document.
+ * @param  {icon} icon The icon to modify
  */
 const fixElement = ($, icon) => {
   for (let attribute of unusedAttributes) {
-    removeAttributes($, attribute);
+    removeAttribute($, attribute);
   }
   for (let shape of shapes) {
     let element = $(shape);
@@ -25,7 +26,7 @@ const fixElement = ($, icon) => {
  * @param  {[type]} attribute The attribute that should be removed.
  * @return {function}         removes the attribute
  */
-const removeAttributes = ($, attribute) => $(attribute).remove();
+const removeAttribute = ($, attribute) => $(attribute).remove();
 
 gulp.task('add-fm-class', () => {
   console.log('icons converted - 🍺');
