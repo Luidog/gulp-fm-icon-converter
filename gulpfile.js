@@ -9,9 +9,9 @@ const { folders, files, shapes } = require('./configuration/settings')
  * and sets the fill attribute to Filemaker's grey color.
  * @param  {html} icon The icon to modify
  */
-const fixElement = (icon) => {
+const fixElement = ($, icon) => {
   for (let shape of shapes) {
-    let element = icon(shape)
+    let element = $(shape)
     element.attribs = {}
     element.addClass('fm_fill').attr('fill', '#ccc')
   }
@@ -19,11 +19,9 @@ const fixElement = (icon) => {
 
 gulp.task('add-fm-class', () => {
   console.log('icons converted - 🍺')
-  gulp.src(folders.source)
+  gulp.src(`${folders.source}/*.svg`)
     .pipe(cheerio({
-      run: (icon) => {
-        fixElement(icon)
-      }
+      run: ($, icon) => fixElement($, icon)
     }))
     .pipe(gulp.dest(folders.destination))
 })
