@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 /**
  * directories are the directories to use as a source and destination for modified icons. The directories are assumed to be local.
@@ -6,9 +6,9 @@
  */
 
 const directories = {
-  filemaker: 'fm-icons',
-  standard: 'standard-icons'
-}
+	filemaker: 'fm-icons',
+	standard: 'standard-icons'
+};
 
 /**
  * folders are the destination and source folders to be used by gulp. This is set in the directories constant above.
@@ -18,25 +18,21 @@ const directories = {
  */
 
 module.exports.folders = {
-  destination: `${directories.filemaker}/`,
-  source: `${directories.standard}/`
-}
+	destination: `${directories.filemaker}/`,
+	source: `${directories.standard}/`
+};
 
 /**
  * shapeTypes are the type of elements whose attributes we will clear and append our filemaker class.
  * @type {Array}
  */
 
-module.exports.shapes = [
-  'path',
-  'rect',
-  'ellipse',
-  'polygon',
-  'circle'
-]
+module.exports.shapes = ['path', 'rect', 'ellipse', 'polygon', 'circle'];
+
+module.exports.unusedAttributes = ['title', 'desc', 'defs'];
 /**
  * Files are the path to the file gulp will use to modify the standard icon
  * @type {string}
  */
 
-module.exports.files = `${directories.standard}/*.svg`
+module.exports.files = `${directories.standard}/*.svg`;
