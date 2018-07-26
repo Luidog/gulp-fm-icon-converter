@@ -5,7 +5,8 @@
   "main": "gulpfile.js",
   "scripts": {
     "start": "gulp",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "test": "nyc _mocha --recursive ./tests --exit"
   },
   "keywords": [
     "SVG",
@@ -29,9 +30,14 @@
     "natives": "1.1.3"
   },
   "devDependencies": {
-    "eslint": "^4.10.0",
+    "chai": "^4.1.2",
+    "coveralls": "^3.0.2",
+    "eslint": "^5.0.1",
     "eslint-config-google": "^0.9.1",
     "eslint-plugin-prettier": "^2.6.2",
-    "prettier": "^1.7.4"
+    "mocha": "^5.0.4",
+    "nyc": "^12.0.2",
+    "mocha-lcov-reporter": "^1.3.0",
+    "prettier": "^1.13.7"
   }
 }
