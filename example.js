@@ -1,18 +1,20 @@
 'use strict';
 
 const gulp = require('gulp');
-const { convert } = require('./index.js');
+const { convert, ensureDirectories, files } = require('./index.js');
 
-const destination = 'fm-icons/';
-const source = 'standard-icons/*.svg';
+const destination = 'fm-icons';
+const source = 'standard-icons';
 
-gulp.task('add-fm-class', () => {
+gulp.task('create-directories', ensureDirectories(source, destination));
+
+gulp.task('convert-icons', () =>
   gulp
-    .src(source)
+    .src(files(source))
     .pipe(convert())
-    .pipe(gulp.dest(destination));
-});
+    .pipe(gulp.dest(destination))
+);
 
-gulp.task('watch', () => gulp.watch(source, ['add-fm-class']));
+gulp.task('watch', () => gulp.watch(files(source), ['convert-icons']));
 
-gulp.task('default', ['add-fm-class', 'watch']);
+gulp.task('default', ['create-directories', 'watch']);
