@@ -1,17 +1,18 @@
 {
   "name": "gulp-fm-icon-converter",
   "version": "2.0.0",
-  "description": "A gulpfile to automatically add the fm_fill class to an icon",
+  "description": "A gulp module to automatically add the fm_fill class to an icon",
   "main": "index.js",
   "scripts": {
-    "start": "",
+    "start": "gulp --gulpfile example.js",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "test": "nyc _mocha --recursive ./tests --exit"
   },
   "keywords": [
-    "SVG",
-    "Filemaker",
+    "svg",
+    "FileMaker",
     "node",
+    "icons",
     "gulp"
   ],
   "repository": {
@@ -24,7 +25,7 @@
     "gulp": "^4.0.0"
   },
   "dependencies": {
-    "cheerio": "^0.6.2"
+    "gulp-cheerio": "^0.6.2"
   },
   "resolutions": {
     "natives": "1.1.3"
