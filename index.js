@@ -1,5 +1,5 @@
 'use strict';
 
-const { convert } = require('./lib');
+const { convert, ensureDirectories, files } = require('./lib');
 
-module.exports = { convert };
+module.exports = { convert, ensureDirectories, files };
