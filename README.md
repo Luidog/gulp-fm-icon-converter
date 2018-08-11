@@ -4,23 +4,59 @@ This tool is used to help convert svg icons into filemaker compatable svg icons.
 
 ## Getting Started
 
-Clone this project to a directory then run npm install and gulp to start. You may set the destination folders in the settings file in the configuration directory
+<!--@installation()-->
+## Installation
 
-### Prerequisites
+```sh
+npm install --save gulp gulp-fm-icon-converter
+```
+<!--/@-->
 
-You need Node.js and Gulp installed to use this
+<!--@example('./example.js')-->
+```js
+'use strict';
+
+const gulp = require('gulp');
+const { convert, ensureDirectories, files } = require('gulp-fm-icon-converter');
+
+const destination = 'fm-icons';
+const source = 'standard-icons';
+
+gulp.task('create-directories', ensureDirectories(source, destination));
+
+gulp.task('convert-icons', () =>
+  gulp
+    .src(files(source))
+    .pipe(convert())
+    .pipe(gulp.dest(destination))
+);
+
+gulp.task('watch', () => gulp.watch(files(source), ['convert-icons']));
+
+gulp.task('default', ['create-directories', 'watch']);
+```
+<!--/@-->
 
 ## Authors
 
-* **Lui de la Parra** - *Initial work*
+- **Lui de la Parra** - _Initial work_
 
 See also the list of [contributors](https://github.com/Luidog/gulp-fm-icon-converter/graphs/contributors) who participated in this project.
 
+<!--@dependencies()-->
+## <a name="dependencies">Dependencies</a>
+
+- [gulp-cheerio](https://github.com/KenPowers/gulp-cheerio): Manipulate HTML and XML files with Cheerio in Gulp.
+
+<!--/@-->
+
+<!--@license()-->
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+MIT © Lui de la Parra
+<!--/@-->
 
 ## Acknowledgments
 
-* Hat tip to Matt Petrowski for his contributions to all things FM.
-* Hat tip to Todd Geist for his hosting of this tool at fmsvg.com
+- Hat tip to Matt Petrowski for his contributions to all things FM.
+- Hat tip to Todd Geist for his hosting of this tool at fmsvg.com
