@@ -2,9 +2,9 @@
   "name": "gulp-fm-icon-converter",
   "version": "2.0.0",
   "description": "A gulpfile to automatically add the fm_fill class to an icon",
-  "main": "gulpfile.js",
+  "main": "index.js",
   "scripts": {
-    "start": "gulp",
+    "start": "",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "test": "nyc _mocha --recursive ./tests --exit"
   },
@@ -21,10 +21,10 @@
   "author": "Lui de la Parra",
   "license": "MIT",
   "peerDependencies": {
-    "gulp": "^3.9.1"
+    "gulp": "^4.0.0"
   },
   "dependencies": {
-    "gulp-cheerio": "^0.6.2"
+    "cheerio": "^0.6.2"
   },
   "resolutions": {
     "natives": "1.1.3"
@@ -35,9 +35,10 @@
     "eslint": "^5.0.1",
     "eslint-config-google": "^0.9.1",
     "eslint-plugin-prettier": "^2.6.2",
+    "gulp": "^3.9.1",
     "mocha": "^5.0.4",
-    "nyc": "^12.0.2",
     "mocha-lcov-reporter": "^1.3.0",
+    "nyc": "^12.0.2",
     "prettier": "^1.13.7"
   }
 }
