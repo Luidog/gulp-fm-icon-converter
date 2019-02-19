@@ -1,6 +1,6 @@
 {
   "name": "gulp-fm-icon-converter",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A gulp module to automatically add the fm_fill class to an svg icon",
   "main": "index.js",
   "scripts": {
