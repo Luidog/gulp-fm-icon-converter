@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "gulp-cheerio": "^0.6.3",
-    "snyk": "^1.258.2"
+    "snyk": "^1.518.0"
   },
   "mos": {
     "plugins": [
